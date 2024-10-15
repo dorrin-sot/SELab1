@@ -1,5 +1,9 @@
 let notes = []
 
+function removeElementByIndex(array, i) {
+    return array.slice(0, i).concat(array.slice(i + 1, array.length))
+}
+
 function submitNote() {
     const text = document.getElementById('new-note').value
     notes.push(text)
