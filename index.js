@@ -12,6 +12,9 @@ function submitNote() {
 }
 
 function deleteNote(idx) {
+    notes = removeElementByIndex(notes, idx)
+    localStorage.setItem('notes', JSON.stringify(notes))
+    reloadNotesInterface()
 }
 
 function createNoteInterface(note, idx) {
