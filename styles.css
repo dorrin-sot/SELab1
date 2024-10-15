@@ -18,11 +18,3 @@ body {
     display: flex;
     flex-direction: row;
 }
-
-.row > *:nth-child(1) {
-    width: 50%;
-}
-
-.row > *:nth-child(2) {
-    width: 100%;
-}
