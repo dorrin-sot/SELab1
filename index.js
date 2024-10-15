@@ -1,14 +1,16 @@
 let notes = []
 
 function createNoteInterface(note) {
-    // todo
+    const elem = document.createElement('p')
+    elem.innerText = note
+    return elem
 }
 
 function loadNotesInterface() {
-    if (notes.length > 0) {        
+    if (notes.length > 0 || true) {        
         const container = document.getElementById('prev-notes-container')
         container.removeChild(container.lastElementChild)
-        notes.forEach((note) => container.appendChild(createNoteInterface(note)))
+        notes.forEach((note, _, __) => container.appendChild(createNoteInterface(note)))
     }
 }
 
