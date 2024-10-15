@@ -1,10 +1,18 @@
-let notes = {}
+let notes = []
 
-function loadNotesInterface() {
-    // todo elahe
+function createNoteInterface(note) {
+    // todo
 }
 
-document.onload = (_) => {
-    notes = localStorage.getItem('notes') || {}
+function loadNotesInterface() {
+    if (notes.length > 0) {        
+        const container = document.getElementById('prev-notes-container')
+        container.removeChild(container.lastElementChild)
+        notes.forEach((note) => container.appendChild(createNoteInterface(note)))
+    }
+}
+
+document.onreadystatechange = (_) => {
+    notes = localStorage.getItem('notes') || []
     loadNotesInterface()
 }

@@ -1,4 +1,4 @@
-html, body, body > * {
+html, body, body > div {
     height: 100%;
 }
 
