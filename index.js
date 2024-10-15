@@ -11,9 +11,15 @@ function submitNote() {
     reloadNotesInterface()
 }
 
-function createNoteInterface(note) {
-    const elem = document.createElement('p')
-    elem.innerText = note
+function deleteNote(idx) {
+}
+
+function createNoteInterface(note, idx) {
+    const elem = document.createElement('div')
+    elem.className = 'row'
+    elem.style.justifyContent = 'space-between'
+    elem.innerHTML = '<p>' + note + '</p>\n' + 
+                     '<button onclick="deleteNote(' + idx + ')">Delete</button>'
     return elem
 }
 
@@ -28,7 +34,8 @@ function reloadNotesInterface() {
     if (notes.length > 0) {
         // hide #no-notes
         document.getElementById('no-notes').style.display = 'none'
-        notes.forEach((note, _, __) => container.appendChild(createNoteInterface(note)))
+        notes.forEach((note, idx, __) => 
+            container.appendChild(createNoteInterface(note, idx)))
     } else {
         // show #no-notes
         document.getElementById('no-notes').style.display = ''
