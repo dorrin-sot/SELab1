@@ -1,5 +1,12 @@
 let notes = []
 
+function submitNote() {
+    const text = document.getElementById('new-note').value
+    notes.push(text)
+    localStorage.setItem('notes', notes)
+    loadNotesInterface()
+}
+
 function createNoteInterface(note) {
     const elem = document.createElement('p')
     elem.innerText = note
