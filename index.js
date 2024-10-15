@@ -3,8 +3,8 @@ let notes = []
 function submitNote() {
     const text = document.getElementById('new-note').value
     notes.push(text)
-    localStorage.setItem('notes', notes)
-    loadNotesInterface()
+    localStorage.setItem('notes', JSON.stringify(notes))
+    reloadNotesInterface()
 }
 
 function createNoteInterface(note) {
@@ -32,6 +32,6 @@ function reloadNotesInterface() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    notes = localStorage.getItem('notes') || []
+    notes = JSON.parse(localStorage.getItem('notes')) || []    
     reloadNotesInterface()
 })
