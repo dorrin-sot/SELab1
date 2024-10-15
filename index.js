@@ -13,16 +13,25 @@ function createNoteInterface(note) {
     return elem
 }
 
-function loadNotesInterface() {
-    if (notes.length > 0) {        
-        const container = document.getElementById('prev-notes-container')
+function reloadNotesInterface() {
+    const container = document.getElementById('prev-notes-container')
+
+    // Remove all container elements except #no-notes
+    while (container.lastElementChild.innerText != 'No notes added yet') {
         container.removeChild(container.lastElementChild)
+    }
+
+    if (notes.length > 0) {
+        // hide #no-notes
+        document.getElementById('no-notes').style.display = 'none'
         notes.forEach((note, _, __) => container.appendChild(createNoteInterface(note)))
+    } else {
+        // show #no-notes
+        document.getElementById('no-notes').style.display = ''
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     notes = localStorage.getItem('notes') || []
-    notes = ['hello1', 'hello2', 'hello3']
-    loadNotesInterface()
+    reloadNotesInterface()
 })
