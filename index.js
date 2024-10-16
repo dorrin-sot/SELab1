@@ -6,7 +6,7 @@ function removeElementByIndex(array, i) {
 
 function submitNote() {
     const text = document.getElementById('new-note').value
-    notes.push(text)
+    notes.push({contents: text, date: (new Date()).getTime()})
     localStorage.setItem('notes', JSON.stringify(notes))
     reloadNotesInterface()
 }
@@ -19,10 +19,11 @@ function deleteNote(idx) {
 
 function createNoteInterface(note, idx) {
     const elem = document.createElement('div')
-    elem.className = 'row'
+    elem.className = 'note'
     elem.style.justifyContent = 'space-between'
-    elem.innerHTML = '<p>' + note + '</p>\n' + 
-                     '<button onclick="deleteNote(' + idx + ')">Delete</button>'
+    elem.innerHTML = '<p class="date">' + new Date(note['date']).toLocaleString() + '</p>\n' + 
+                     '<button class="delete-btn" onclick="deleteNote(' + idx + ')">Delete</button>\n' +
+                     '<p class="contents">' + note['contents'] + '</p>\n'
     return elem
 }
 

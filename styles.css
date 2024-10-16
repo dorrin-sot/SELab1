@@ -2,6 +2,8 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
+
+    --card-color: hsl(175, 54%, 74%);
 }
 
 body {
@@ -11,10 +13,50 @@ body {
 
 #prev-notes-container {
     height: 100%;
+
     overflow: scroll;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .row {
     display: flex;
     flex-direction: row;
+}
+
+.note {
+    display: grid;
+    grid-template-columns: 1fr 4rem;
+    grid-template-rows: 2rem auto;
+
+    margin-inline: .5rem;
+    padding: .5rem;
+
+    background-color: var(--card-color);
+    border-radius: .25rem;
+}
+
+.note > * {
+    margin: 0;
+}
+
+.note > .date {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    font-size: small;
+}
+
+.note > .delete-btn {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 1;
+
+    background-color: hsl(0, 100%, 25%);
+    color: white;
+    font-weight: bold;
+}
+.note > .contents {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
 }
