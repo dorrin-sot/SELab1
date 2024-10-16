@@ -22,7 +22,7 @@ function createNoteInterface(note, idx) {
     elem.className = 'note'
     elem.style.justifyContent = 'space-between'
     elem.innerHTML = '<p class="date">' + new Date(note['date']).toLocaleString() + '</p>\n' + 
-                     '<button class="delete-btn" onclick="deleteNote(' + idx + ')">Delete</button>\n' +
+                     '<button class="delete-btn" onclick="deleteNote(' + idx + ')">🗑</button>\n' +
                      '<p class="contents">' + note['contents'] + '</p>\n'
     return elem
 }
