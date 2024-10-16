@@ -6,6 +6,15 @@ html, body {
     --card-color: hsl(175, 54%, 74%);
 }
 
+h1 {
+    margin-block-end: 2rem;
+    margin-inline-start: 1rem;
+
+    text-decoration: underline;
+    text-decoration-thickness: .5rem;
+    text-decoration-color: hsl(271, 76%, 60%);
+}
+
 body {
     display: flex;
     flex-direction: column;
