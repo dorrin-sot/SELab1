@@ -30,6 +30,10 @@ body {
     gap: .5rem;
 }
 
+#no-notes {
+    font-size: x-large;
+}
+
 .note {
     display: grid;
     grid-template-columns: 1fr auto;
