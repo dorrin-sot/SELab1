@@ -20,6 +20,31 @@ body {
     flex-direction: column;
 }
 
+#header { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header > h1 {
+    width: 100%;
+}
+
+#header > * {
+    white-space: nowrap;
+    margin-inline-end: .5rem;
+}
+
+#header > p {
+    font-size: small;
+}
+
+#header > button {
+    background-color: hsl(100, 100%, 25%);
+    font-size: small;
+}
+
 #prev-notes-container {
     height: 100%;
 

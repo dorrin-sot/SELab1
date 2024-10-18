@@ -48,7 +48,28 @@ function reloadNotesInterface() {
     }
 }
 
+function updateName() {
+    const name = prompt('What is your name?')
+    if (name) localStorage.setItem('username', name)
+    else localStorage.removeItem('username')
+    reloadAuth()
+}
+
+function reloadAuth() {
+    const name = localStorage.getItem('username');
+    const authBtn = document.getElementById('auth-button')
+    const greeting = document.getElementById('greeting')
+    if (name) {
+        authBtn.innerText = 'Change Name'
+        greeting.innerText = 'Hello, ' + name + '!'
+    } else {
+        authBtn.innerText = 'Enter Name'
+        greeting.innerText = 'Hello, Stranger!'
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     notes = JSON.parse(localStorage.getItem('notes')) || []    
     reloadNotesInterface()
+    reloadAuth()
 })
