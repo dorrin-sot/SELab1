@@ -4,6 +4,7 @@ function submitNote() {
     const text = document.getElementById('new-note').value
     notes.push(text)
     localStorage.setItem('notes', JSON.stringify(notes))
+    document.getElementById('new-note').value = ''
     reloadNotesInterface()
 }
 
