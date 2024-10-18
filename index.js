@@ -6,6 +6,7 @@ function removeElementByIndex(array, i) {
 
 function submitNote() {
     const text = document.getElementById('new-note').value
+    if (text == "") return
     notes.push({contents: text, date: (new Date()).getTime()})
     localStorage.setItem('notes', JSON.stringify(notes))
     document.getElementById('new-note').value = ''
