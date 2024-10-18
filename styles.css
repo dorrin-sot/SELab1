@@ -31,6 +31,10 @@ body {
 }
 
 #no-notes {
+    align-self: center;
+    justify-self: center;
+
+    color: red;
     font-size: x-large;
 }
 
