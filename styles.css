@@ -20,6 +20,26 @@ body {
     flex-direction: column;
 }
 
+#header { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header > h1 {
+    width: 100%;
+}
+
+#header > * {
+    white-space: nowrap !important;
+    margin-inline-end: .5rem !important;
+}
+
+#header > button {
+    all: revert;
+}
+
 #prev-notes-container {
     height: 100%;
 
