@@ -49,7 +49,6 @@ function reloadNotesInterface() {
 
 function updateName() {
     const name = prompt('What is your name?')
-    print(name)
     if (name) localStorage.setItem('username', name)
     else localStorage.removeItem('username')
     reloadAuth()
