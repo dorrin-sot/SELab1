@@ -2,6 +2,8 @@
 
 Our static website is a very simple note-taking website that allows users to write and delete notes which are saved in the localstorage of the browser and loaded afterwards from there.
 
+[Github Repository Link](https://github.com/dorrin-sot/SELab1)
+
 | Full Name    | Student ID |
 | :-------- | :-------: |
 | Dorrin Sotoudeh  | 98170851    |
