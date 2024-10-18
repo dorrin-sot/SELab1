@@ -1,17 +1,31 @@
 let notes = []
 
+function removeElementByIndex(array, i) {
+    return array.slice(0, i).concat(array.slice(i + 1, array.length))
+}
+
 function submitNote() {
     const text = document.getElementById('new-note').value
     if (text == "") return
-    notes.push(text)
+    notes.push({contents: text, date: (new Date()).getTime()})
     localStorage.setItem('notes', JSON.stringify(notes))
     document.getElementById('new-note').value = ''
     reloadNotesInterface()
 }
 
-function createNoteInterface(note) {
-    const elem = document.createElement('p')
-    elem.innerText = note
+function deleteNote(idx) {
+    notes = removeElementByIndex(notes, idx)
+    localStorage.setItem('notes', JSON.stringify(notes))
+    reloadNotesInterface()
+}
+
+function createNoteInterface(note, idx) {
+    const elem = document.createElement('div')
+    elem.className = 'note'
+    elem.style.justifyContent = 'space-between'
+    elem.innerHTML = '<p class="date">' + new Date(note['date']).toLocaleString() + '</p>\n' + 
+                     '<button class="delete-btn" onclick="deleteNote(' + idx + ')">🗑</button>\n' +
+                     '<p class="contents">' + note['contents'] + '</p>\n'
     return elem
 }
 
@@ -26,7 +40,8 @@ function reloadNotesInterface() {
     if (notes.length > 0) {
         // hide #no-notes
         document.getElementById('no-notes').style.display = 'none'
-        notes.forEach((note, _, __) => container.appendChild(createNoteInterface(note)))
+        notes.forEach((note, idx, __) => 
+            container.appendChild(createNoteInterface(note, idx)))
     } else {
         // show #no-notes
         document.getElementById('no-notes').style.display = ''
