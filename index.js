@@ -2,6 +2,7 @@ let notes = []
 
 function submitNote() {
     const text = document.getElementById('new-note').value
+    if (text == "") return
     notes.push(text)
     localStorage.setItem('notes', JSON.stringify(notes))
     document.getElementById('new-note').value = ''
