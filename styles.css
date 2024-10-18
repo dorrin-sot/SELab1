@@ -30,6 +30,14 @@ body {
     gap: .5rem;
 }
 
+#no-notes {
+    align-self: baseline;
+    justify-self: baseline;
+
+    color: aqua;
+    font-size: x-large;
+}
+
 .note {
     display: grid;
     grid-template-columns: 1fr auto;
